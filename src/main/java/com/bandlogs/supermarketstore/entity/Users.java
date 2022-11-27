@@ -1,9 +1,13 @@
 package com.bandlogs.supermarketstore.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 
 /**
  * created with love by mundiaem
@@ -38,7 +42,9 @@ public class Users {
     private String phone_number;
     private String email;
     private String password;
-    private int role_id;
+    @ManyToOne
+    @JoinColumn(name="role_id", nullable=false)
+    private Roles roles;
 
 
 

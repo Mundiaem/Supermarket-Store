@@ -9,6 +9,7 @@ package com.bandlogs.supermarketstore.entity;
  * Date
  * Description
  */
-
+import javax.persistence.*;
+@Entity
 public class Returns {
 }

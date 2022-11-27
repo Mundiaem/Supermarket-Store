@@ -1,4 +1,5 @@
 package com.bandlogs.supermarketstore.entity;
+import javax.persistence.*;
 
 /**
  * created with love by mundiaem
@@ -6,6 +7,6 @@ package com.bandlogs.supermarketstore.entity;
  * Time: 21:45
  * ⚡  - Supermarket Store
  */
-
+@Entity
 public class Supermarket {
 }

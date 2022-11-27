@@ -1,4 +1,5 @@
 package com.bandlogs.supermarketstore.entity;
+import javax.persistence.*;
 
 /**
  * created with love by mundiaem
@@ -9,6 +10,10 @@ package com.bandlogs.supermarketstore.entity;
  * Name
  * description
  */
-
+@Entity
 public class Category {
+    public int id;
+    private String name;
+    private String Description;
+
 }

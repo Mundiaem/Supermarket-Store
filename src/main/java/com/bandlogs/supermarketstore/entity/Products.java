@@ -1,8 +1,7 @@
 package com.bandlogs.supermarketstore.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,8 +42,12 @@ public class Products {
     private int quantity;
     private String status;
     private String other_details;
-    private int vendor_id;
-    private int category_id;
+    @ManyToOne
+    @JoinColumn(name="vendor_id", nullable=false)
+    private Vendors vendors;
+    @ManyToOne
+    @JoinColumn(name="category_id", nullable=false)
+    private Category category;
     private Date mf_date;
     private Date exp_date;
 }

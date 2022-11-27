@@ -9,6 +9,10 @@ package com.bandlogs.supermarketstore.entity;
  * Payment_type
  * Other_details
  */
-
+import javax.persistence.*;
+@Entity
 public class Payments {
+    public Long bill_number;
+    private String payment_type;
+    private String other_details;
 }
