@@ -1,8 +1,9 @@
-package com.bandlogs.supermarketstore.entity;
+package com.bandlogs.supermarketstore.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,9 +18,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "roles")
+@Builder
 public class Roles {
     @Id
-    public int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int Id;
     private String name;
     private String description;
 

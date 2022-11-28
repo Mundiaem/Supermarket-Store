@@ -1,13 +1,12 @@
-package com.bandlogs.supermarketstore.entity;
+package com.bandlogs.supermarketstore.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+
 
 /**
  * created with love by mundiaem
@@ -30,6 +29,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@Builder
 public class Users {
 
 

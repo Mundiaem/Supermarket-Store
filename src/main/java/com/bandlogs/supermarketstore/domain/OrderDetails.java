@@ -1,8 +1,10 @@
-package com.bandlogs.supermarketstore.entity;
+package com.bandlogs.supermarketstore.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -29,9 +31,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "order_details")
+@Builder
 public class OrderDetails {
     @Id
-    public int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int Id;
     private float unit_price;
     private int size;
     private int quantity;
@@ -47,4 +51,5 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name="payment_id", nullable=false)
     private Payments payment;
+
 }
