@@ -15,6 +15,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,5 +27,9 @@ import lombok.NoArgsConstructor;
 public class Returns {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int Id;
+    private  int id;
+    private Date return_date;
+    private String description;
+    @OneToMany(targetEntity = Products.class, mappedBy = "release", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Products> products= new ArrayList<>();
 }

@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 14:35
  * ⚡ '' - Supermarket Store
  */
-public interface ReturnRepository extends JpaRepository<Returns, Long> {
+public interface ReturnRepository extends JpaRepository<Returns, Integer> {
 }

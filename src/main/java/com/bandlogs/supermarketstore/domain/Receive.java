@@ -15,6 +15,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 @Entity
 @Builder
 @Data
@@ -24,7 +28,9 @@ public class Receive {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
-
-    private
+    private Date receive_date;
+    private String description;
+    @OneToMany(targetEntity = Products.class, mappedBy = "receive", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Products> products= new ArrayList<>();
 
 }

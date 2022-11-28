@@ -48,11 +48,17 @@ public class Products {
     private String status;
     private String other_details;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="prod_vendor_id", nullable=false)
+    @JoinColumn(name="prod_vendor_id")
     private Vendors vendor;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="prod_category_id", nullable=false)
     private Category category;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="prod_release_id")
+    private Release release;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="prod_release_id")
+    private Receive receive;
     private Date mf_date;
     private Date exp_date;
 

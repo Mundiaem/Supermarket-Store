@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 14:36
  * ⚡ '' - Supermarket Store
  */
-public interface ReceiveRepository extends JpaRepository<Receive, Long> {
+public interface ReceiveRepository extends JpaRepository<Receive, Integer> {
 }
 
