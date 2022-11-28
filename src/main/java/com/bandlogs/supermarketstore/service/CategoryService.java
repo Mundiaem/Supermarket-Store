@@ -5,6 +5,9 @@ import com.bandlogs.supermarketstore.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
  * created with love by mundiaem
  * created on 27/11/2022
@@ -22,11 +25,18 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Iterable<Category> findAll() {
+    public List<Category> findAll() {
         return categoryRepository.findAll();
     }
 
     public void deleteAll() {
         categoryRepository.deleteAll();
+    }
+
+    public boolean existByName(String name){
+        return categoryRepository.existsByName(name);
+    }
+    public Optional<Category> findCategoryById(int id){
+        return categoryRepository.findById(id);
     }
 }

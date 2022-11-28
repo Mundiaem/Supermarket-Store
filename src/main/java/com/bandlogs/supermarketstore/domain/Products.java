@@ -47,18 +47,21 @@ public class Products {
     private int quantity;
     private String status;
     private String other_details;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="prod_vendor_id")
     private Vendors vendor;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="prod_category_id", nullable=false)
     private Category category;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="prod_release_id")
     private Release release;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="prod_release_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="prod_receive_id")
     private Receive receive;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="prod_return_id")
+    private Returns returns;
     private Date mf_date;
     private Date exp_date;
 

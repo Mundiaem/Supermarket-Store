@@ -30,6 +30,6 @@ public class Returns {
     private  int id;
     private Date return_date;
     private String description;
-    @OneToMany(targetEntity = Products.class, mappedBy = "release", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Products.class, mappedBy = "returns", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Products> products= new ArrayList<>();
 }

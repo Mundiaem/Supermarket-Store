@@ -1,9 +1,7 @@
 package com.bandlogs.supermarketstore.service;
 
-import com.bandlogs.supermarketstore.domain.Orders;
-import com.bandlogs.supermarketstore.domain.Vendors;
-import com.bandlogs.supermarketstore.repository.OrderRepository;
-import com.bandlogs.supermarketstore.repository.VendorsRepository;
+import com.bandlogs.supermarketstore.domain.LPO;
+import com.bandlogs.supermarketstore.repository.LPORepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +14,11 @@ import java.util.List;
  * ⚡  - Supermarket Store
  */
 @Service
-public class OrderService {
+public class LPOService {
     @Autowired
-    private OrderRepository orderRepository;
+    private LPORepository orderRepository;
 
-    public Orders saveOrder(Orders order) {
+    public LPO saveOrder(LPO order) {
         return orderRepository.save(order);
     }
 
@@ -28,7 +26,7 @@ public class OrderService {
         orderRepository.deleteAll();
     }
 
-    public List<Orders> findALlOrders() {
+    public List<LPO> findALlOrders() {
         return orderRepository.findAll();
     }
 

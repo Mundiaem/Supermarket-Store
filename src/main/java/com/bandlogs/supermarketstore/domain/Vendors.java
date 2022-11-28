@@ -39,8 +39,8 @@ public class Vendors {
     private String other_details;
     @OneToMany(targetEntity = Products.class, mappedBy = "vendor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Products> products= new ArrayList<Products>();
-    @OneToMany(targetEntity = OrderDetails.class, mappedBy = "vendor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    List<OrderDetails> orders= new ArrayList<OrderDetails>();
+    @OneToMany(targetEntity = LPO.class, mappedBy = "vendor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<LPO> orders= new ArrayList<LPO>();
 
 
 

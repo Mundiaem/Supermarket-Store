@@ -29,15 +29,28 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     @OneToMany(targetEntity = Products.class, mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Products> products= new ArrayList<Products>();;
-
-
-
     private String name;
     private String Description;
 
+    public int getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
 }

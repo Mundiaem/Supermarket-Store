@@ -1,6 +1,6 @@
 package com.bandlogs.supermarketstore.repository;
 
-import com.bandlogs.supermarketstore.domain.Orders;
+import com.bandlogs.supermarketstore.domain.LPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * ⚡  - Supermarket Store
  */
 
-public interface OrderRepository extends JpaRepository<Orders, Integer> {
+public interface LPORepository extends JpaRepository<LPO, Integer> {
 }

@@ -15,7 +15,7 @@ import java.util.List;
  * created on 26/11/2022
  * Time: 20:18
  * ⚡  - Supermarket Store
- *
+ * <p>
  * Id
  * Date_of_order
  * Order_details
@@ -27,18 +27,21 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "orders")
 @Builder
-public class Orders {
+public class LPO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int Id;
-    private Date date_of_order;
+    @OneToMany(targetEntity = OrderDetails.class, mappedBy = "lpo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
+    @Column(name = "lpo_issue_date")
+    private Date lpo_issue_date;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="order_vendor_id", nullable=false)
+    @JoinColumn(name = "order_vendor_id", nullable = false)
     private Vendors vendor;
-    @OneToMany(targetEntity = OrderDetails.class, mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    List<OrderDetails> orderDetails= new ArrayList<OrderDetails>();;
-
-
+    @ManyToOne
+    @JoinColumn(name = "payment_id")
+    private Payments payment;
+    ;
 
 
 }
