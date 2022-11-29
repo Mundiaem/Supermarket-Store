@@ -24,7 +24,7 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 @Builder
-
+@Data
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,23 +34,5 @@ public class Category {
     private String name;
     private String Description;
 
-    public int getId() {
-        return id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
 }

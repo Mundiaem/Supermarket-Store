@@ -2,7 +2,6 @@ package com.bandlogs.supermarketstore.controllers;
 
 import com.bandlogs.supermarketstore.domain.Category;
 import com.bandlogs.supermarketstore.domain.LPO;
-import com.bandlogs.supermarketstore.domain.Products;
 import com.bandlogs.supermarketstore.service.CategoryService;
 import com.bandlogs.supermarketstore.service.LPOService;
 import com.bandlogs.supermarketstore.service.ProductServices;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,8 +26,7 @@ import java.util.Optional;
  */
 @RestController
 @Slf4j
-@RequestMapping("/store")
-
+@RequestMapping("/api/v1/category")
 public class MainController {
     public static final Logger logger = LoggerFactory.getLogger(MainController.class);
     private static final String TAG = MainController.class.getSimpleName().toString();
@@ -41,8 +38,8 @@ public class MainController {
     @Autowired
     ProductServices productServices;
 
-    @PostMapping(value = "/add_category/", consumes = {"application/json"})
-    public ResponseEntity<Category> createCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
+    @PostMapping(value = "/", consumes = {"application/json"})
+    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
 
         if (categoryService.existByName(category.getName())) {
             logger.error("Unable to create. A Category with name {} already exist", category.getName());
@@ -56,21 +53,19 @@ public class MainController {
 
     }
 
-    @GetMapping("/category/{id}/")
-    public ResponseEntity<?> getCategoryById(@PathVariable("id") int id) {
-        logger.info("Updating Category with id {}", id);
-
+    @GetMapping({"/"})
+    public ResponseEntity<Category> getCategoryById(@RequestParam("id") Integer id) {
+        logger.info("getting  Category by id {}", 1552);
         Optional<Category> category = categoryService.findCategoryById(id);
-
         if (!category.isPresent()) {
-            logger.error("Unable to Get. Category with id {} not found.", id);
-            return new ResponseEntity<>(new CustomErrorType("Unable to upate. User with id " + id + " not found."),
+            logger.error("Unable to Get. Category with id {} not found.", 1552);
+            return new ResponseEntity(new CustomErrorType("Unable to get. category with id " + 1552 + " not found."),
                     HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(category.get(), HttpStatus.OK);
     }
 
-    @GetMapping("/categories/")
+    @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
         List<Category> categories = categoryService.findAll();
         if (categories.isEmpty()) {
@@ -79,22 +74,6 @@ public class MainController {
         return new ResponseEntity<List<Category>>(categories, HttpStatus.OK);
     }
 
-    @PostMapping("/add-products/{cat_id}")
-    public ResponseEntity<Products> createProducts(@PathVariable Integer cat_id, @RequestBody Products product) {
-        Optional<Category> optionalCategory = categoryService.findCategoryById(cat_id);
-        if (productServices.productExists(product.getName())) {
-            logger.error("Unable to create. A Category with name {} already exist", product.getName());
-            return new ResponseEntity(new CustomErrorType("Unable to create. A Category with name " +
-                    product.getName() + " already exist."), HttpStatus.CONFLICT);
-        } else if (!optionalCategory.isPresent()) {
-            logger.error("Unable to create. A Category with id {} does not  exist", cat_id);
-            return new ResponseEntity(new CustomErrorType("Unable to create. A Category with does not  exist  " +
-                    cat_id + " does not exist."), HttpStatus.CONFLICT);
-        }
-        product.setCategory(optionalCategory.get());
-        Products product_ = productServices.addProduct(product);
-        return new ResponseEntity<>(product_, HttpStatus.CREATED);
-    }
 
     @PostMapping("/")
     public LPO raiseIPO(@RequestBody LPO lpo) {

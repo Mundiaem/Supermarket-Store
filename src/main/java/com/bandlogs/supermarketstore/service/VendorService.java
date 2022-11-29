@@ -30,5 +30,7 @@ public class VendorService {
         return vendorsRepository.findAll();
     }
 
-
+    public boolean vendorExists(String name){
+        return vendorsRepository.existsByName(name);
+    }
 }

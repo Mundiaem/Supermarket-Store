@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface VendorsRepository extends JpaRepository<Vendors, Integer> {
+    boolean existsByName(String name);
+
 }

@@ -33,4 +33,5 @@ public class Receive {
     @OneToMany(targetEntity = Products.class, mappedBy = "receive", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Products> products= new ArrayList<>();
 
+
 }

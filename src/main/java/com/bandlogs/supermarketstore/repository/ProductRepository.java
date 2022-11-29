@@ -1,6 +1,7 @@
 package com.bandlogs.supermarketstore.repository;
 
 import com.bandlogs.supermarketstore.domain.Products;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,6 @@ import org.springframework.stereotype.Repository;
  * ⚡  - Supermarket Store
  */
 @Repository
-public interface ProductRepository extends CrudRepository<Products, Integer> {
+public interface ProductRepository extends JpaRepository<Products, Integer> {
     boolean existsByName(String name);
 }

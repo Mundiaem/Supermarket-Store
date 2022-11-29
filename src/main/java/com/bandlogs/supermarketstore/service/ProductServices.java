@@ -5,6 +5,8 @@ import com.bandlogs.supermarketstore.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * created with love by mundiaem
  * created on 27/11/2022
@@ -20,11 +22,9 @@ public class ProductServices {
 
         return productRepository.save(products);
     }
-
-    public Iterable<Products> findAll() {
+    public List<Products> findAll() {
         return productRepository.findAll();
     }
-
     public void deleteAll() {
         productRepository.deleteAll();
     }
