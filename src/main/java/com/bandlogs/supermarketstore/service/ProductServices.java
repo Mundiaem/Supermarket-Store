@@ -28,6 +28,9 @@ public class ProductServices {
     public void deleteAll() {
         productRepository.deleteAll();
     }
+    public boolean productExists(String name){
+        return productRepository.existsByName(name);
+    }
 
 
 }

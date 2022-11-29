@@ -65,6 +65,66 @@ public class Products {
     private Date mf_date;
     private Date exp_date;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getUnit() {
+        return unit;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getOther_details() {
+        return other_details;
+    }
+
+    public Vendors getVendor() {
+        return vendor;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Release getRelease() {
+        return release;
+    }
+
+    public Receive getReceive() {
+        return receive;
+    }
+
+    public Returns getReturns() {
+        return returns;
+    }
+
+    public Date getMf_date() {
+        return mf_date;
+    }
+
+    public Date getExp_date() {
+        return exp_date;
+    }
+
     @Override
     public String toString() {
         return "Products{" +
